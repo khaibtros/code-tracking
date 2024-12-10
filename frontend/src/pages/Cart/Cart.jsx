@@ -4,10 +4,10 @@ import { StoreContext } from '../../context/StoreContext'
 
 const Cart = () => {
 
-  const {food_list,cartItems,removeFromCart} = useContext(StoreContext);
+  const { food_list, cartItems, removeFromCart } = useContext(StoreContext);
 
   return (
-    <div className='cart'>Hello
+    <div className='cart'>
       <div className="cart-items">
         <div className="cart-items-title">
           <p>Items</p>
@@ -19,16 +19,19 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        {food_list.map((item,index)=>{
-          if (cartItems[item._id]>0) {
+        {food_list.map((item,index) => {
+          if (cartItems[item._id] > 0) {
             return (
-              <div className="cart-items-title cart-items-item">
-                <img src={item.image} alt="" />
-                <p>{item.name}</p>
-                <p>{item.price}</p>
-                <p>{cartItems[item._id]}</p>
-                <p>{item.price*cartItems[item._id]}</p>
-                <p>x</p>
+              <div>
+                <div className="cart-items-title cart-items-item">
+                  <img src={item.image} alt="" />
+                  <p>{item.name}</p>
+                  <p>{item.price}</p>
+                  <p>{cartItems[item._id]}</p>
+                  <p>{item.price * cartItems[item._id]}</p>
+                  <p className='cross'>x</p>
+                </div>
+                <hr />
               </div>
             )
           }
